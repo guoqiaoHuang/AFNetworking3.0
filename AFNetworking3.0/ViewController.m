@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "UIImageView+AFNetworking.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.title=@"网络框架升级";
+//    兼容https先修改plist文件字段配置好工程环境
+    DLog(@"HELLO WORLD");
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    });
+    [self.webImage setImageWithURL:[NSURL URLWithString:@"http://static.oschina.net/uploads/space/2016/0410/095439_jGXF_2356355_thumb.jpg"]];
+    
 }
 
 - (void)didReceiveMemoryWarning {

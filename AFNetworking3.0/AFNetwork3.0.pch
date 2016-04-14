@@ -1,0 +1,24 @@
+//
+//  AFNetwork3.0.pch
+//  AFNetworking3.0
+//
+//  Created by shizi on 16/4/14.
+//  Copyright © 2016年 黄小黄. All rights reserved.
+//
+
+#ifndef AFNetwork3_0_pch
+#define AFNetwork3_0_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* AFNetwork3_0_pch */
+//nslog 宏
+#ifdef DEBUG
+#define     DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...)
+#endif 
+//
+#import "MBProgressHUD.h"
+#import "AFNetworking.h"

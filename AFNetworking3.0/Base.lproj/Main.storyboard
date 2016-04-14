@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e8S-Uc-pc2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,90 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVZ-e3-t8Z">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AVZ-e3-t8Z" secondAttribute="height" multiplier="1:1" id="fkJ-uI-TS0"/>
+                                    <constraint firstAttribute="width" constant="100" id="jjv-Jh-3Zq"/>
+                                    <constraint firstAttribute="height" constant="100" id="vAK-Qd-Sbj"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fkJ-uI-TS0"/>
+                                        <exclude reference="jjv-Jh-3Zq"/>
+                                        <exclude reference="vAK-Qd-Sbj"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="fkJ-uI-TS0"/>
+                                        <include reference="jjv-Jh-3Zq"/>
+                                        <include reference="vAK-Qd-Sbj"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AVZ-e3-t8Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="110" id="GMr-Zp-R4j"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AVZ-e3-t8Z" secondAttribute="bottom" constant="308" id="QiI-ZI-dgZ"/>
+                            <constraint firstAttribute="trailing" secondItem="AVZ-e3-t8Z" secondAttribute="trailing" constant="110" id="Xrv-xm-33B"/>
+                            <constraint firstItem="AVZ-e3-t8Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="adz-ye-WBR"/>
+                            <constraint firstItem="AVZ-e3-t8Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="xgN-U9-YZN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="AVZ-e3-t8Z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GMr-Zp-R4j"/>
+                                <exclude reference="Xrv-xm-33B"/>
+                                <exclude reference="adz-ye-WBR"/>
+                                <exclude reference="xgN-U9-YZN"/>
+                                <exclude reference="QiI-ZI-dgZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="AVZ-e3-t8Z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GMr-Zp-R4j"/>
+                                <include reference="Xrv-xm-33B"/>
+                                <include reference="adz-ye-WBR"/>
+                                <include reference="xgN-U9-YZN"/>
+                                <include reference="QiI-ZI-dgZ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="swf-2E-mMa"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="webImage" destination="AVZ-e3-t8Z" id="XvU-oN-BJ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1174.5" y="248.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6ga-Bd-oWi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e8S-Uc-pc2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZBj-zT-x0i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="T7d-in-12m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ab9-4M-URD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="381"/>
         </scene>
     </scenes>
 </document>
