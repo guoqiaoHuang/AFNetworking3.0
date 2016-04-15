@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BaseRequest.h"
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *webImage;
 

@@ -16,6 +16,7 @@
 		DE988BFA1CBF8D5200D58DD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE988BF81CBF8D5200D58DD5 /* LaunchScreen.storyboard */; };
 		DE988C051CBF8D5200D58DD5 /* AFNetworking3_0Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE988C041CBF8D5200D58DD5 /* AFNetworking3_0Tests.m */; };
 		DE988C101CBF8D5200D58DD5 /* AFNetworking3_0UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE988C0F1CBF8D5200D58DD5 /* AFNetworking3_0UITests.m */; };
+		DEF5806F1CC09B8900187E2A /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF5806E1CC09B8900187E2A /* BaseRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		DE988C0F1CBF8D5200D58DD5 /* AFNetworking3_0UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFNetworking3_0UITests.m; sourceTree = "<group>"; };
 		DE988C111CBF8D5200D58DD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE988C1D1CBF981600D58DD5 /* AFNetwork3.0.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFNetwork3.0.pch; sourceTree = "<group>"; };
+		DEF5806D1CC09B8900187E2A /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		DEF5806E1CC09B8900187E2A /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		EEBADD51EF121EFF6140FCF2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,7 +107,7 @@
 		DE988BDE1CBF8D5200D58DD5 = {
 			isa = PBXGroup;
 			children = (
-				DE988BE91CBF8D5200D58DD5 /* AFNetworking3.0 */,
+				DEF5806C1CC09B4800187E2A /* Base */,
 				DE988C031CBF8D5200D58DD5 /* AFNetworking3.0Tests */,
 				DE988C0E1CBF8D5200D58DD5 /* AFNetworking3.0UITests */,
 				DE988BE81CBF8D5200D58DD5 /* Products */,
@@ -164,6 +167,16 @@
 				DE988C111CBF8D5200D58DD5 /* Info.plist */,
 			);
 			path = AFNetworking3.0UITests;
+			sourceTree = "<group>";
+		};
+		DEF5806C1CC09B4800187E2A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DE988BE91CBF8D5200D58DD5 /* AFNetworking3.0 */,
+				DEF5806D1CC09B8900187E2A /* BaseRequest.h */,
+				DEF5806E1CC09B8900187E2A /* BaseRequest.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEF5806F1CC09B8900187E2A /* BaseRequest.m in Sources */,
 				DE988BF21CBF8D5200D58DD5 /* ViewController.m in Sources */,
 				DE988BEF1CBF8D5200D58DD5 /* AppDelegate.m in Sources */,
 				DE988BEC1CBF8D5200D58DD5 /* main.m in Sources */,

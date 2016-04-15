@@ -26,7 +26,13 @@
 
     });
     [self.webImage setImageWithURL:[NSURL URLWithString:@"http://static.oschina.net/uploads/space/2016/0410/095439_jGXF_2356355_thumb.jpg"]];
-    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"20131129", @"date", @"1", @"startRecord", @"5", @"len", @"1234567890", @"udid", @"Iphone", @"terminalType", @"213", @"cid", nil];
+    [BaseRequest requestWithParam:dic address:@"" result:^(BOOL isSuccessful, id result, NSString *error) {
+       
+        if (isSuccessful) {
+            DLog(@"%@",result);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
