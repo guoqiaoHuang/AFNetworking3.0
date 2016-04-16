@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *webImage;
 
+@property (weak, nonatomic) IBOutlet UITextView *newsText;
 
 @end
 

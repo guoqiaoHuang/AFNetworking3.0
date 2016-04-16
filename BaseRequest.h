@@ -12,8 +12,11 @@
 typedef void (^ProtocolBlock)(BOOL isSuccessful,id result,NSString* error);
 @property(nonatomic,copy) ProtocolBlock complete;
 
-//post
+//可上传文件 post
 +(void)requestWithParam:(NSDictionary *)dictionary address:(NSString *)apiStr result:(ProtocolBlock)resultblock;
+//不上传文件的那种post
++(void)requestWithoutdownParam:(NSDictionary *)dictionary address:(NSString *)apiStr result:(ProtocolBlock)resultblock;
+
 //get
 +(void)requestGetWithParam:(NSDictionary *)dictionary address:(NSString *)apiStr result:(ProtocolBlock)resultblock;
 
