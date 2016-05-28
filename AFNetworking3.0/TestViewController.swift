@@ -14,7 +14,7 @@ class TestViewController: UIViewController ,UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.cyanColor();
-        self.title="swift";
+        self.title="初探swift";
         table=UITableView(frame: self.view.frame);
         table.delegate=self;
         table.dataSource=self;
