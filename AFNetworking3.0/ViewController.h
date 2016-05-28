@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseRequest.h"
+#import "AFNetworking3_0-Swift.h"
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *webImage;
 

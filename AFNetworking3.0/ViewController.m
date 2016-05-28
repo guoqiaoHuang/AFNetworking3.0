@@ -50,6 +50,7 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     }];
+    
 }
 -(void)runTest{
     CATransition *animation = [CATransition animation];
@@ -59,6 +60,11 @@
     animation.subtype = kCATransitionFromLeft;
     [self.view.window.layer addAnimation:animation forKey:nil];
     [self.navigationController pushViewController:[RuntimeViewController new] animated:YES];
+
+     }
+- (IBAction)swiftAction:(id)sender {
+    TestViewController *text=[[TestViewController alloc]init];
+    [self.navigationController pushViewController:text animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
