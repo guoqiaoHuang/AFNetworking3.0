@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import SnapKit
 
 class TestViewController: UIViewController ,UITableViewDataSource,UITableViewDelegate{
     var table = UITableView();
+    var sourceArray  = []{
+        didSet  {
+            table.reloadData();
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.cyanColor();
         self.title="初探swift";
-        table=UITableView(frame: self.view.frame);
+        table=UITableView();
+        
         table.delegate=self;
         table.dataSource=self;
         table.backgroundColor?=UIColor.clearColor();
@@ -24,9 +31,21 @@ class TestViewController: UIViewController ,UITableViewDataSource,UITableViewDel
         footerView.backgroundColor=UIColor.blackColor();
         table.tableFooterView=footerView;
         self.view .addSubview(table);
+        table.snp_makeConstraints { make in
+            make.edges.equalTo(self.view);
+            make.center.equalTo(self.view);
+        }
+        self.table.registerNib(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "helloSwift");
         self.getdatasourceHome();
+        self.navigationItem.rightBarButtonItem=UIBarButtonItem.init(title: "heolloOC", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(TestViewController.open));
     }
-    
+    func open() -> Void {
+        let homeVC:HomeViewController = HomeViewController.init();
+        
+//        HomeViewController *homeVC=HomeViewController.init();
+        self.navigationController?.pushViewController(homeVC, animated: true);
+        
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
     }
@@ -41,42 +60,51 @@ class TestViewController: UIViewController ,UITableViewDataSource,UITableViewDel
 //            let jsonObject : AnyObject! = NSJSONSerialization.JSONObjectWithData(date, options: NSJSONReadingOptions.MutableContainers, error: nil
                 let object :AnyObject = try! NSJSONSerialization
                     .JSONObjectWithData(date!, options:NSJSONReadingOptions.AllowFragments) as! NSDictionary;
-                print(object.objectForKey("count"));
+            print(object.objectForKey("count"));
             let jsonArray:AnyObject!=object.objectForKey("posts");
+            self.sourceArray.arrayByAddingObjectsFromArray(jsonArray as! [AnyObject]);
+            self.sourceArray=jsonArray! as! NSArray;
             
             print(jsonArray);
             let tempdic:AnyObject=jsonArray[0];
             print(tempdic.objectForKey("excerpt"));
-    
+            print(self.sourceArray.count);
+            self.table .reloadData();
         }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 5;
+        return self.sourceArray.count;
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let helloSwift = "helloSwift";
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: helloSwift);
-        cell.textLabel?.text = NSString(format:"%d", indexPath.row) as String;
-        cell.detailTextLabel?.text = "baby\(indexPath.row)";
-        if indexPath.row%2==0 {
-            cell.accessoryType=UITableViewCellAccessoryType.DetailButton;
-        }else{
-            cell.accessoryType=UITableViewCellAccessoryType.DetailDisclosureButton;
-        }
-        cell.selectionStyle=UITableViewCellSelectionStyle.Blue;
+        let tempDic:NSDictionary = self.sourceArray[indexPath.row] as! NSDictionary;
+//        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: helloSwift);
+        let cell = tableView.dequeueReusableCellWithIdentifier(helloSwift) as! HomeTableViewCell
+        
+        
+        cell.time.text=tempDic.objectForKey("date") as? String;
+        cell.hot.text=tempDic.objectForKey("date")as? String;
+        cell.context.text=tempDic.objectForKey("excerpt")as? String;
+        let picStr = tempDic.objectForKey("pic")as? String;
+        let data = NSData(contentsOfURL: NSURL(fileURLWithPath: picStr!));
+        cell.contextImage.setImageWithId(1, imagePath: picStr!)
+        
         return cell;
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if indexPath.row%2==0 {
-            
-        }else{
-            
-        }
-        return ;
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//        if indexPath.row%2==0 {
+//            
+//        }else{
+//            
+//        }
+//        return ;
+//    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 320;
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
